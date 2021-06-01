@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid</title>
+    <style>
+      /* METHOD 1: NUMBERS */
+      /*
+      .challenge {
+        width: 1000px;
+        margin: 30px auto;
+
+        display: grid;
+        grid-template-rows: 100px 200px 400px 100px;
+        grid-template-columns: repeat(3, 1fr) 200px;
+        grid-gap: 30px;
+      }
+
+      .grid-area {
+        background: orangered;
+        padding: 20px;
+        color: white;
+        font-size: 30px;
+        font-family: sans-serif;
+      }
+
+      .header {
+        grid-column: 1 / -1;
+      }
+
+      .sidebar {
+        grid-column: 4 / 5;
+        grid-row: 2 / span 2;
+      }
+
+      .main-content {
+        grid-column: 1 / span 3;
+      }
+
+      .footer {
+        grid-column: 1 / -1;
+      }
+      */
+
+      /*METHOD 2: LINE NAMES*/
+      /*.challenge {
+        width: 1000px;
+        margin: 30px auto;
+
+        display: grid;
+        grid-template-rows: [header-start] 100px [header-end box-start] 200px [box-end main-start] 400px [main-end footer-start] 100px [footer-end];
+        grid-template-columns: repeat(3, [col-start] 1fr [col-end]) 200px [grid-end];
+        grid-gap: 30px;
+      }
+
+      .grid-area {
+        background: orangered;
+        padding: 20px;
+        color: white;
+        font-size: 30px;
+        font-family: sans-serif;
+      }
+
+      .header {
+        grid-column: col-start 1 / grid-end;
+      }
+
+      .sidebar {
+        grid-column: col-end 3 / grid-end;
+        grid-row: box-start / main-end;
+      }
+
+      .main-content {
+        grid-column: col-start 1 / col-end 3;
+      }
+
+      .footer {
+        grid-column: col-start 1 / grid-end;
+      }*/
+
+      /* METHOD 3: NAMED GRID AREA */
+
+      .challenge {
+        width: 1000px;
+        margin: 30px auto;
+
+        display: grid;
+        grid-template-rows: 100px 200px 400px 100px;
+        grid-template-columns: repeat(3, 1fr) 200px;
+        grid-gap: 30px;
+
+        grid-template-areas:
+          "head head head head"
+          "box box box side"
+          "main main main side"
+          "footer footer footer footer";
+      }
+
+      .grid-area {
+        background: orangered;
+        padding: 20px;
+        color: white;
+        font-size: 30px;
+        font-family: sans-serif;
+      }
+
+      .header {
+        grid-area: head;
+      }
+
+      .sidebar {
+        grid-area: side;
+      }
+
+      .main-content {
+        grid-area: main;
+      }
+
+      .footer {
+        grid-area: footer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="challenge">
+      <div class="grid-area header">Header</div>
+      <div class="grid-area small-box-1">Small box 1</div>
+      <div class="grid-area small-box-2">Small box 2</div>
+      <div class="grid-area small-box-3">Small box 3</div>
+      <div class="grid-area main-content">Main Content</div>
+      <div class="grid-area sidebar">Sidebar</div>
+      <div class="grid-area footer">Footer</div>
+    </div>
+  </body>
+</html>
